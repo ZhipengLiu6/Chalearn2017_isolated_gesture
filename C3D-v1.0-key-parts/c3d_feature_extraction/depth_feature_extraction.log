@@ -1,0 +1,243 @@
+nohup: 忽略输入
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+E0601 01:04:16.669378 25896 extract_image_features.cpp:64] Using GPU #0
+I0601 01:04:16.670439 25896 net.cpp:76] Creating Layer data
+I0601 01:04:16.670447 25896 net.cpp:112] data -> data
+I0601 01:04:16.670452 25896 net.cpp:112] data -> label
+I0601 01:04:16.670464 25896 video_data_layer.cpp:283] Opening file /home/zhipengliu/ChaLearn2017/IsoGesture/process_data/list/input/v1/ChaLearn_IsoGesture_validation_depth_input_list_image_nlabel249_v1.txt
+I0601 01:04:16.672508 25896 video_data_layer.cpp:317] A total of 5784 video chunks.
+I0601 01:04:16.672518 25896 video_data_layer.cpp:344] read video from /home/zhipengliu/ChaLearn2017/IsoGesture/data/Validation/unificationDepthLabelValidationImage/001/K_00189/
+I0601 01:04:16.703501 25896 video_data_layer.cpp:365] output data size: 10,3,32,112,112
+I0601 01:04:16.703513 25896 video_data_layer.cpp:387] Loading mean file from /home/zhipengliu/zhipengliu/OtherProject/C3D-master/examples/c3d_train_ucf101/mean_value_5_27/flap/iso_training_len_32_depth_input_list_image_nlabel249.binaryproto
+I0601 01:04:16.961398 25896 net.cpp:127] Top shape: 10 3 32 112 112 (12042240)
+I0601 01:04:16.961438 25896 net.cpp:127] Top shape: 10 1 1 1 1 (10)
+I0601 01:04:16.961444 25896 net.cpp:159] data does not need backward computation.
+I0601 01:04:16.961459 25896 net.cpp:76] Creating Layer conv1a
+I0601 01:04:16.961464 25896 net.cpp:86] conv1a <- data
+I0601 01:04:16.961473 25896 net.cpp:112] conv1a -> conv1a
+I0601 01:04:16.961894 25896 net.cpp:127] Top shape: 10 64 32 112 112 (256901120)
+I0601 01:04:16.961902 25896 net.cpp:154] conv1a needs backward computation.
+I0601 01:04:16.961908 25896 net.cpp:76] Creating Layer relu1a
+I0601 01:04:16.961911 25896 net.cpp:86] relu1a <- conv1a
+I0601 01:04:16.961915 25896 net.cpp:100] relu1a -> conv1a (in-place)
+I0601 01:04:16.961925 25896 net.cpp:127] Top shape: 10 64 32 112 112 (256901120)
+I0601 01:04:16.961927 25896 net.cpp:154] relu1a needs backward computation.
+I0601 01:04:16.961932 25896 net.cpp:76] Creating Layer pool1
+I0601 01:04:16.961935 25896 net.cpp:86] pool1 <- conv1a
+I0601 01:04:16.961938 25896 net.cpp:112] pool1 -> pool1
+I0601 01:04:16.961949 25896 net.cpp:127] Top shape: 10 64 32 56 56 (64225280)
+I0601 01:04:16.961952 25896 net.cpp:154] pool1 needs backward computation.
+I0601 01:04:16.961957 25896 net.cpp:76] Creating Layer conv2a
+I0601 01:04:16.961961 25896 net.cpp:86] conv2a <- pool1
+I0601 01:04:16.961964 25896 net.cpp:112] conv2a -> conv2a
+I0601 01:04:16.966974 25896 net.cpp:127] Top shape: 10 128 32 56 56 (128450560)
+I0601 01:04:16.966982 25896 net.cpp:154] conv2a needs backward computation.
+I0601 01:04:16.966986 25896 net.cpp:76] Creating Layer relu2a
+I0601 01:04:16.966989 25896 net.cpp:86] relu2a <- conv2a
+I0601 01:04:16.966992 25896 net.cpp:100] relu2a -> conv2a (in-place)
+I0601 01:04:16.966995 25896 net.cpp:127] Top shape: 10 128 32 56 56 (128450560)
+I0601 01:04:16.966998 25896 net.cpp:154] relu2a needs backward computation.
+I0601 01:04:16.967002 25896 net.cpp:76] Creating Layer pool2
+I0601 01:04:16.967005 25896 net.cpp:86] pool2 <- conv2a
+I0601 01:04:16.967007 25896 net.cpp:112] pool2 -> pool2
+I0601 01:04:16.967011 25896 net.cpp:127] Top shape: 10 128 16 28 28 (16056320)
+I0601 01:04:16.967015 25896 net.cpp:154] pool2 needs backward computation.
+I0601 01:04:16.967017 25896 net.cpp:76] Creating Layer conv3a
+I0601 01:04:16.967020 25896 net.cpp:86] conv3a <- pool2
+I0601 01:04:16.967023 25896 net.cpp:112] conv3a -> conv3a
+I0601 01:04:16.986366 25896 net.cpp:127] Top shape: 10 256 16 28 28 (32112640)
+I0601 01:04:16.986378 25896 net.cpp:154] conv3a needs backward computation.
+I0601 01:04:16.986384 25896 net.cpp:76] Creating Layer relu3a
+I0601 01:04:16.986387 25896 net.cpp:86] relu3a <- conv3a
+I0601 01:04:16.986392 25896 net.cpp:100] relu3a -> conv3a (in-place)
+I0601 01:04:16.986394 25896 net.cpp:127] Top shape: 10 256 16 28 28 (32112640)
+I0601 01:04:16.986397 25896 net.cpp:154] relu3a needs backward computation.
+I0601 01:04:16.986402 25896 net.cpp:76] Creating Layer conv3b
+I0601 01:04:16.986404 25896 net.cpp:86] conv3b <- conv3a
+I0601 01:04:16.986413 25896 net.cpp:112] conv3b -> conv3b
+I0601 01:04:17.035033 25896 net.cpp:127] Top shape: 10 256 16 28 28 (32112640)
+I0601 01:04:17.035061 25896 net.cpp:154] conv3b needs backward computation.
+I0601 01:04:17.035068 25896 net.cpp:76] Creating Layer relu3b
+I0601 01:04:17.035073 25896 net.cpp:86] relu3b <- conv3b
+I0601 01:04:17.035078 25896 net.cpp:100] relu3b -> conv3b (in-place)
+I0601 01:04:17.035081 25896 net.cpp:127] Top shape: 10 256 16 28 28 (32112640)
+I0601 01:04:17.035084 25896 net.cpp:154] relu3b needs backward computation.
+I0601 01:04:17.035089 25896 net.cpp:76] Creating Layer pool3
+I0601 01:04:17.035091 25896 net.cpp:86] pool3 <- conv3b
+I0601 01:04:17.035095 25896 net.cpp:112] pool3 -> pool3
+I0601 01:04:17.035101 25896 net.cpp:127] Top shape: 10 256 8 14 14 (4014080)
+I0601 01:04:17.035104 25896 net.cpp:154] pool3 needs backward computation.
+I0601 01:04:17.035109 25896 net.cpp:76] Creating Layer conv4a
+I0601 01:04:17.035112 25896 net.cpp:86] conv4a <- pool3
+I0601 01:04:17.035115 25896 net.cpp:112] conv4a -> conv4a
+I0601 01:04:17.139295 25896 net.cpp:127] Top shape: 10 512 8 14 14 (8028160)
+I0601 01:04:17.139322 25896 net.cpp:154] conv4a needs backward computation.
+I0601 01:04:17.139328 25896 net.cpp:76] Creating Layer relu4a
+I0601 01:04:17.139333 25896 net.cpp:86] relu4a <- conv4a
+I0601 01:04:17.139336 25896 net.cpp:100] relu4a -> conv4a (in-place)
+I0601 01:04:17.139340 25896 net.cpp:127] Top shape: 10 512 8 14 14 (8028160)
+I0601 01:04:17.139343 25896 net.cpp:154] relu4a needs backward computation.
+I0601 01:04:17.139349 25896 net.cpp:76] Creating Layer conv4b
+I0601 01:04:17.139353 25896 net.cpp:86] conv4b <- conv4a
+I0601 01:04:17.139355 25896 net.cpp:112] conv4b -> conv4b
+I0601 01:04:17.349001 25896 net.cpp:127] Top shape: 10 512 8 14 14 (8028160)
+I0601 01:04:17.349028 25896 net.cpp:154] conv4b needs backward computation.
+I0601 01:04:17.349035 25896 net.cpp:76] Creating Layer relu4b
+I0601 01:04:17.349040 25896 net.cpp:86] relu4b <- conv4b
+I0601 01:04:17.349045 25896 net.cpp:100] relu4b -> conv4b (in-place)
+I0601 01:04:17.349048 25896 net.cpp:127] Top shape: 10 512 8 14 14 (8028160)
+I0601 01:04:17.349051 25896 net.cpp:154] relu4b needs backward computation.
+I0601 01:04:17.349059 25896 net.cpp:76] Creating Layer pool4
+I0601 01:04:17.349062 25896 net.cpp:86] pool4 <- conv4b
+I0601 01:04:17.349066 25896 net.cpp:112] pool4 -> pool4
+I0601 01:04:17.349069 25896 net.cpp:127] Top shape: 10 512 4 7 7 (1003520)
+I0601 01:04:17.349072 25896 net.cpp:154] pool4 needs backward computation.
+I0601 01:04:17.349078 25896 net.cpp:76] Creating Layer conv5a
+I0601 01:04:17.349081 25896 net.cpp:86] conv5a <- pool4
+I0601 01:04:17.349084 25896 net.cpp:112] conv5a -> conv5a
+I0601 01:04:17.556440 25896 net.cpp:127] Top shape: 10 512 4 7 7 (1003520)
+I0601 01:04:17.556469 25896 net.cpp:154] conv5a needs backward computation.
+I0601 01:04:17.556476 25896 net.cpp:76] Creating Layer relu5a
+I0601 01:04:17.556480 25896 net.cpp:86] relu5a <- conv5a
+I0601 01:04:17.556485 25896 net.cpp:100] relu5a -> conv5a (in-place)
+I0601 01:04:17.556489 25896 net.cpp:127] Top shape: 10 512 4 7 7 (1003520)
+I0601 01:04:17.556493 25896 net.cpp:154] relu5a needs backward computation.
+I0601 01:04:17.556499 25896 net.cpp:76] Creating Layer conv5b
+I0601 01:04:17.556502 25896 net.cpp:86] conv5b <- conv5a
+I0601 01:04:17.556505 25896 net.cpp:112] conv5b -> conv5b
+I0601 01:04:17.754443 25896 net.cpp:127] Top shape: 10 512 4 7 7 (1003520)
+I0601 01:04:17.754472 25896 net.cpp:154] conv5b needs backward computation.
+I0601 01:04:17.754479 25896 net.cpp:76] Creating Layer relu5b
+I0601 01:04:17.754484 25896 net.cpp:86] relu5b <- conv5b
+I0601 01:04:17.754489 25896 net.cpp:100] relu5b -> conv5b (in-place)
+I0601 01:04:17.754493 25896 net.cpp:127] Top shape: 10 512 4 7 7 (1003520)
+I0601 01:04:17.754497 25896 net.cpp:154] relu5b needs backward computation.
+I0601 01:04:17.754501 25896 net.cpp:76] Creating Layer pool5
+I0601 01:04:17.754506 25896 net.cpp:86] pool5 <- conv5b
+I0601 01:04:17.754510 25896 net.cpp:112] pool5 -> pool5
+I0601 01:04:17.754521 25896 net.cpp:127] Top shape: 10 512 2 4 4 (163840)
+I0601 01:04:17.754525 25896 net.cpp:154] pool5 needs backward computation.
+I0601 01:04:17.754531 25896 net.cpp:76] Creating Layer fc6-11
+I0601 01:04:17.754534 25896 net.cpp:86] fc6-11 <- pool5
+I0601 01:04:17.754537 25896 net.cpp:112] fc6-11 -> fc6-11
+I0601 01:04:19.692633 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:19.692667 25896 net.cpp:154] fc6-11 needs backward computation.
+I0601 01:04:19.692674 25896 net.cpp:76] Creating Layer relu6
+I0601 01:04:19.692682 25896 net.cpp:86] relu6 <- fc6-11
+I0601 01:04:19.692687 25896 net.cpp:100] relu6 -> fc6-11 (in-place)
+I0601 01:04:19.692692 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:19.692695 25896 net.cpp:154] relu6 needs backward computation.
+I0601 01:04:19.692700 25896 net.cpp:76] Creating Layer drop6
+I0601 01:04:19.692703 25896 net.cpp:86] drop6 <- fc6-11
+I0601 01:04:19.692708 25896 net.cpp:100] drop6 -> fc6-11 (in-place)
+I0601 01:04:19.692711 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:19.692714 25896 net.cpp:154] drop6 needs backward computation.
+I0601 01:04:19.692719 25896 net.cpp:76] Creating Layer fc7_11
+I0601 01:04:19.692723 25896 net.cpp:86] fc7_11 <- fc6-11
+I0601 01:04:19.692725 25896 net.cpp:112] fc7_11 -> fc7_11
+I0601 01:04:20.173688 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:20.173729 25896 net.cpp:154] fc7_11 needs backward computation.
+I0601 01:04:20.173738 25896 net.cpp:76] Creating Layer relu7
+I0601 01:04:20.173743 25896 net.cpp:86] relu7 <- fc7_11
+I0601 01:04:20.173748 25896 net.cpp:100] relu7 -> fc7_11 (in-place)
+I0601 01:04:20.173751 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:20.173754 25896 net.cpp:154] relu7 needs backward computation.
+I0601 01:04:20.173759 25896 net.cpp:76] Creating Layer drop7
+I0601 01:04:20.173763 25896 net.cpp:86] drop7 <- fc7_11
+I0601 01:04:20.173765 25896 net.cpp:100] drop7 -> fc7_11 (in-place)
+I0601 01:04:20.173768 25896 net.cpp:127] Top shape: 10 4096 1 1 1 (40960)
+I0601 01:04:20.173771 25896 net.cpp:154] drop7 needs backward computation.
+I0601 01:04:20.173777 25896 net.cpp:76] Creating Layer fc8_11
+I0601 01:04:20.173780 25896 net.cpp:86] fc8_11 <- fc7_11
+I0601 01:04:20.173784 25896 net.cpp:112] fc8_11 -> fc8_11
+I0601 01:04:20.200413 25896 net.cpp:127] Top shape: 10 249 1 1 1 (2490)
+I0601 01:04:20.200438 25896 net.cpp:154] fc8_11 needs backward computation.
+I0601 01:04:20.200444 25896 net.cpp:76] Creating Layer prob
+I0601 01:04:20.200448 25896 net.cpp:86] prob <- fc8_11
+I0601 01:04:20.200453 25896 net.cpp:112] prob -> prob
+I0601 01:04:20.200469 25896 net.cpp:127] Top shape: 10 249 1 1 1 (2490)
+I0601 01:04:20.200474 25896 net.cpp:154] prob needs backward computation.
+I0601 01:04:20.200477 25896 net.cpp:76] Creating Layer accuracy
+I0601 01:04:20.200480 25896 net.cpp:86] accuracy <- prob
+I0601 01:04:20.200484 25896 net.cpp:86] accuracy <- label
+I0601 01:04:20.200489 25896 net.cpp:112] accuracy -> accuracy
+I0601 01:04:20.200492 25896 net.cpp:127] Top shape: 1 2 1 1 1 (2)
+I0601 01:04:20.200495 25896 net.cpp:154] accuracy needs backward computation.
+I0601 01:04:20.200498 25896 net.cpp:165] This network produces output accuracy
+I0601 01:04:20.200513 25896 net.cpp:183] Collecting Learning Rate and Weight Decay.
+I0601 01:04:20.200525 25896 net.cpp:176] Network initialization done.
+I0601 01:04:20.200527 25896 net.cpp:177] Memory required for Data 2260930048
+E0601 01:04:22.735683 25896 extract_image_features.cpp:81] Extracting features for 7176 batches
+E0601 01:04:23.263936 25896 extract_image_features.cpp:117] Extracted features of 10 images.
+E0601 01:05:08.943230 25896 extract_image_features.cpp:117] Extracted features of 1010 images.
+E0601 01:05:56.452666 25896 extract_image_features.cpp:117] Extracted features of 2010 images.
+E0601 01:06:43.745100 25896 extract_image_features.cpp:117] Extracted features of 3010 images.
+E0601 01:07:30.909096 25896 extract_image_features.cpp:117] Extracted features of 4010 images.
+E0601 01:08:18.048686 25896 extract_image_features.cpp:117] Extracted features of 5010 images.
+E0601 01:09:06.840044 25896 extract_image_features.cpp:117] Extracted features of 6010 images.
+E0601 01:09:54.506458 25896 extract_image_features.cpp:117] Extracted features of 7010 images.
+E0601 01:10:42.192327 25896 extract_image_features.cpp:117] Extracted features of 8010 images.
+E0601 01:12:10.831895 25896 extract_image_features.cpp:117] Extracted features of 9010 images.
+E0601 01:13:49.346937 25896 extract_image_features.cpp:117] Extracted features of 10010 images.
+E0601 01:15:27.498692 25896 extract_image_features.cpp:117] Extracted features of 11010 images.
+E0601 01:17:03.582540 25896 extract_image_features.cpp:117] Extracted features of 12010 images.
+E0601 01:18:40.045447 25896 extract_image_features.cpp:117] Extracted features of 13010 images.
+E0601 01:20:13.805320 25896 extract_image_features.cpp:117] Extracted features of 14010 images.
+E0601 01:21:46.188726 25896 extract_image_features.cpp:117] Extracted features of 15010 images.
+E0601 01:23:23.941818 25896 extract_image_features.cpp:117] Extracted features of 16010 images.
+E0601 01:25:01.277206 25896 extract_image_features.cpp:117] Extracted features of 17010 images.
+E0601 01:26:38.946473 25896 extract_image_features.cpp:117] Extracted features of 18010 images.
+E0601 01:28:17.621703 25896 extract_image_features.cpp:117] Extracted features of 19010 images.
+E0601 01:29:55.173707 25896 extract_image_features.cpp:117] Extracted features of 20010 images.
+E0601 01:31:34.168190 25896 extract_image_features.cpp:117] Extracted features of 21010 images.
+E0601 01:33:13.375001 25896 extract_image_features.cpp:117] Extracted features of 22010 images.
+E0601 01:34:51.181799 25896 extract_image_features.cpp:117] Extracted features of 23010 images.
+E0601 01:36:30.103729 25896 extract_image_features.cpp:117] Extracted features of 24010 images.
+E0601 01:38:09.288202 25896 extract_image_features.cpp:117] Extracted features of 25010 images.
+E0601 01:39:46.617609 25896 extract_image_features.cpp:117] Extracted features of 26010 images.
+E0601 01:41:24.807461 25896 extract_image_features.cpp:117] Extracted features of 27010 images.
+E0601 01:43:03.654815 25896 extract_image_features.cpp:117] Extracted features of 28010 images.
+E0601 01:44:42.439589 25896 extract_image_features.cpp:117] Extracted features of 29010 images.
+E0601 01:46:21.619381 25896 extract_image_features.cpp:117] Extracted features of 30010 images.
+E0601 01:48:00.191084 25896 extract_image_features.cpp:117] Extracted features of 31010 images.
+E0601 01:49:38.338446 25896 extract_image_features.cpp:117] Extracted features of 32010 images.
+E0601 01:51:17.502476 25896 extract_image_features.cpp:117] Extracted features of 33010 images.
+E0601 01:52:56.237814 25896 extract_image_features.cpp:117] Extracted features of 34010 images.
+E0601 01:54:35.412896 25896 extract_image_features.cpp:117] Extracted features of 35010 images.
+E0601 01:56:14.252666 25896 extract_image_features.cpp:117] Extracted features of 36010 images.
+E0601 01:57:52.758564 25896 extract_image_features.cpp:117] Extracted features of 37010 images.
+E0601 01:59:32.227658 25896 extract_image_features.cpp:117] Extracted features of 38010 images.
+E0601 02:01:11.510603 25896 extract_image_features.cpp:117] Extracted features of 39010 images.
+E0601 02:02:50.854920 25896 extract_image_features.cpp:117] Extracted features of 40010 images.
+E0601 02:04:29.836580 25896 extract_image_features.cpp:117] Extracted features of 41010 images.
+E0601 02:06:08.344617 25896 extract_image_features.cpp:117] Extracted features of 42010 images.
+E0601 02:07:46.070621 25896 extract_image_features.cpp:117] Extracted features of 43010 images.
+E0601 02:09:25.223120 25896 extract_image_features.cpp:117] Extracted features of 44010 images.
+E0601 02:11:03.798491 25896 extract_image_features.cpp:117] Extracted features of 45010 images.
+E0601 02:12:43.620712 25896 extract_image_features.cpp:117] Extracted features of 46010 images.
+E0601 02:14:23.073876 25896 extract_image_features.cpp:117] Extracted features of 47010 images.
+E0601 02:16:02.002146 25896 extract_image_features.cpp:117] Extracted features of 48010 images.
+E0601 02:17:41.173398 25896 extract_image_features.cpp:117] Extracted features of 49010 images.
+E0601 02:19:20.220132 25896 extract_image_features.cpp:117] Extracted features of 50010 images.
+E0601 02:20:58.801105 25896 extract_image_features.cpp:117] Extracted features of 51010 images.
+E0601 02:22:38.089834 25896 extract_image_features.cpp:117] Extracted features of 52010 images.
+E0601 02:24:17.769007 25896 extract_image_features.cpp:117] Extracted features of 53010 images.
+E0601 02:25:56.008347 25896 extract_image_features.cpp:117] Extracted features of 54010 images.
+E0601 02:27:35.000392 25896 extract_image_features.cpp:117] Extracted features of 55010 images.
+E0601 02:29:14.497120 25896 extract_image_features.cpp:117] Extracted features of 56010 images.
+E0601 02:30:55.037142 25896 extract_image_features.cpp:117] Extracted features of 57010 images.
+E0601 02:32:34.208355 25896 extract_image_features.cpp:117] Extracted features of 58010 images.
+E0601 02:34:12.576490 25896 extract_image_features.cpp:117] Extracted features of 59010 images.
+E0601 02:35:50.316830 25896 extract_image_features.cpp:117] Extracted features of 60010 images.
+E0601 02:37:29.452613 25896 extract_image_features.cpp:117] Extracted features of 61010 images.
+E0601 02:39:08.958762 25896 extract_image_features.cpp:117] Extracted features of 62010 images.
+E0601 02:40:48.712584 25896 extract_image_features.cpp:117] Extracted features of 63010 images.
+E0601 02:42:28.417295 25896 extract_image_features.cpp:117] Extracted features of 64010 images.
+E0601 02:44:07.453757 25896 extract_image_features.cpp:117] Extracted features of 65010 images.
+E0601 02:45:48.436971 25896 extract_image_features.cpp:117] Extracted features of 66010 images.
+E0601 02:47:28.095108 25896 extract_image_features.cpp:117] Extracted features of 67010 images.
+E0601 02:49:08.176239 25896 extract_image_features.cpp:117] Extracted features of 68010 images.
+E0601 02:50:47.952985 25896 extract_image_features.cpp:117] Extracted features of 69010 images.
+E0601 02:52:27.401675 25896 extract_image_features.cpp:117] Extracted features of 70010 images.
+E0601 02:54:06.844560 25896 extract_image_features.cpp:117] Extracted features of 71010 images.
+E0601 02:55:21.744014 25896 extract_image_features.cpp:121] Successfully extracted 71756 features!

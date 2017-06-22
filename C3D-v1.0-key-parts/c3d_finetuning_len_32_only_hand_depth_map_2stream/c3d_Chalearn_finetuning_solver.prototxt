@@ -1,0 +1,21 @@
+train_net: "c3d_Chalearn_finetuning_train.prototxt"
+# test_net: "we don't use testing on the fly"
+test_iter: 100
+test_interval: 0
+base_lr: 1e-04
+momentum: 0.9
+weight_decay: 0.0005
+lr_policy: "step"
+gamma: 0.9
+stepsize: 5000
+# Display every 200 iterations
+display: 20
+# The maximum number of iterations
+max_iter: 111000
+# snapshot intermediate results
+snapshot: 5000
+snapshot_prefix: "/data/lilin/liuzhipeng/model/len_32/Chalearn2017_iso_train_only_hand_depth_2stream/only_hand_depth_2stream" 
+
+# solver mode: CPU or GPU
+solver_mode: GPU
+device_id: 2 

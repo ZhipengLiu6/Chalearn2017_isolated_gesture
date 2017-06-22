@@ -36,7 +36,7 @@ labelHDfile: the new labeled hand detecion file path
 
 ###Step3.4: Feature extraction. C3d_feature_extraction can be placed in the directory of example. Set corresponding paths(must be careful). (The extracted c3d feature can be downloaded from https://pan.baidu.com/s/1nuPJ3uh)
 
-###Step3.5: Read extracted c3d feature using the code of read_and_fuse_feature_ubuntu_matlab. (the final feature can also be downloaded from https://pan.baidu.com/s/1pLfUwhP)
+###Step3.5: Read extracted c3d feature using the code of read_and_fuse_feature_ubuntu_matlab. (the final feature can also be downloaded from https://pan.baidu.com/s/1pLrzEtl)
 
 ##Step4: Train linear-SVM model using the code of svm_c3d.py.(The svm_model file has trained svm model)
 

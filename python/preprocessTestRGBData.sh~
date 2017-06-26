@@ -1,0 +1,1 @@
+python process_data.py --oriRGBVideoPath data/IsoGD_phase_2/test --faceDetecionPath data/IsofacePosition/IsoRGBtestFacePosition.txt --handDetectionFile data/handDetection/test --isRGB 1 --isTrain 2

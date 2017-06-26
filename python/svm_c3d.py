@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import h5py
 import pickle
 import pprint
+import argparse
+import subprocess
 import re
 """
 function: test the svm model, generate and save the accuracy
@@ -42,7 +44,7 @@ def test_has_gr(x = None, y = None, modelPath = None, saveResultPath = None, par
                     3 : yg,
                     4 : para,
     }
-    pdb.set_trace()
+    # pdb.set_trace()
     saveStream = open(saveResultPath, 'wb')
     pickle.dump(result, saveStream)
     saveStream.close()
@@ -60,7 +62,7 @@ def test_no_gr(x = None, modelPath = None, saveResultPath = None, para = None):
     result = {2 : predict,
                     4 : para,
     }
-    pdb.set_trace()
+    # pdb.set_trace()
     saveStream = open(saveResultPath, 'wb')
     pickle.dump(result, saveStream)
     saveStream.close()
@@ -128,20 +130,41 @@ def Generate_submission_file(videoid = None,  predict = None, mysubfile = None, 
         newtestline = oritestline[0 : linelen-1] + " " + str(lable) + "\n"
         substream.write(newtestline)
     substream.close()
+
+def checkPath(path = None):
+    if not os.path.exists(path):
+        strcmd = "mkdir -p " + path
+        subprocess.call(strcmd, shell = True)   
 if __name__ == '__main__':
     ##set data path
-    strpara = "_iso_depth_map_only_hand_rgb_only_hand_face_2streams_iter_1k_c_Efu1"
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--trainfilepath', default='../read_and_fuse_feature_ubuntu_matlab/fusion_train.mat', type=str, help = 'the path to fusion c3d training feature file')
+    parser.add_argument('--testfilepath', default='../read_and_fuse_feature_ubuntu_matlab//fusion_test.mat', type=str, help = 'the path to fusion c3d testing feature file')
+    parser.add_argument('--submissionFile', default='submission/valid_prediction.txt', type=str, help = 'the path to submission file')
+    parser.add_argument('--GivenVideolistfile', default='data/valid_list.txt', type=str, help = 'the path to given submission video list file')
+    parser.add_argument('--submissionType', default=1, type=int, help = 'the submission data type(1: valid, 2: test) ')
+    parser.add_argument('--isTrain', default=1, type=int, help = 'whether to run the training svm code(1: run, 0: do not run)')
+    parser.add_argument('--isTest', default=1, type=int, help = 'whether to run the testing svm code and generate submission file(1: run, 0: do not run)')
+    parser.add_argument('--saveModelPath', default = "../svm_model/iso_training_linear_svm_model_depth_map_only_hand_rgb_only_hand_face_2streams_iter_1k_c_Efu1.m", type = str, help = 'the path to saved svm model')
+    args = parser.parse_args()
+    # pdb.set_trace()
+    trainfilepath = args.trainfilepath
+    testfilepath = args.testfilepath
+    submissionFile = args.submissionFile
+    GivenVideolistfile = args.GivenVideolistfile
+
+    isTrain = args.isTrain
+    isTest = args.isTest
+    submissionType = args.submissionType
+    strpara = "iso_depth_map_only_hand_rgb_only_hand_face_2streams_iter_1k_c_Efu1"
     print("experiment type:", strpara)
-    trainfilepath = '/home/zhipengliu/ChaLearn2017/IsoGesture/feature/process/fusion/new_iso_training_fusion_depth_map_only_hand_rgb_only_hand_face_2stream.mat'
-    testfilepath = '/home/zhipengliu/ChaLearn2017/IsoGesture/feature/process/fusion/new_iso_validation_fusion_depth_map_only_hand_rgb_only_hand_face_2stream.mat'
-    # saveModelPath = '/home/zhipengliu/ChaLearn2017/related_work/SVM_classification/python/v1/model/iso_training_linear_svm_model' + strpara + '.m'
-    saveModelPath = '/home/zhipengliu/ChaLearn2017/IsoGesture/iso_final_code/svm_model/iso_training_linear_svm_model_depth_map_only_hand_rgb_only_hand_face_2streams_iter_1k_c_Efu1.m'
-    saveResultPath = '/home/zhipengliu/ChaLearn2017/related_work/SVM_classification/python/v1/result/con_validation' + strpara + '.pkl'
-    submissionFile = "/home/zhipengliu/ChaLearn2017/IsoGesture/submission/valid_prediction.txt"
-    GivenVideolistfile = "/home/zhipengliu/ChaLearn2017/IsoGesture/submission/valid_list.txt"
-    isTrain = 0
-    isTest = 1
-    ## set hyper-parameter
+    saveModelPath = args.saveModelPath
+
+    saveResultPath = 'svm_result'
+    checkPath(saveResultPath)
+    saveResultPath = saveResultPath + "/" + strpara + '.pkl'
+
+    ## set hyper-parameter for svm
     para = {}
     para['C'] = 0.1
     para['dual'] = False #dual=False when n_samples > n_features.
@@ -159,10 +182,9 @@ if __name__ == '__main__':
     train_x = train_x.transpose(1, 0)
     print("training x shape:", train_x.shape)
     print("training y shape:", train_y.shape)
-    pdb.set_trace()
+    # pdb.set_trace()
     timestart = time.time()
     if isTrain == 1:
-
         # pdb.set_trace()
         train(x = train_x, y = train_y, saveModelPath = saveModelPath, para = para)
     #-----------------------------------------------------------------------------
@@ -171,7 +193,7 @@ if __name__ == '__main__':
         # validationmat = scio.loadmat(testfilepath)
         validation_x = validationmat['validationfeature'][:]
         validation_y = validationmat['validationlabel'][:]
-        videoid = validationmat['validationVideoid'][:]
+        validvideoid = validationmat['validationVideoid'][:]
         validation_x = validation_x.transpose(1, 0)
         print("testing x shape:", validation_x.shape)
         print("testing y shape:", validation_y.shape)
@@ -180,6 +202,6 @@ if __name__ == '__main__':
         print("testing the testing data:")
         # test_has_gr(x = validation_x, y = validation_y, modelPath = saveModelPath, saveResultPath = saveResultPath, para = para)
         predict = test_no_gr(x = validation_x, modelPath = saveModelPath, saveResultPath = saveResultPath, para = para)
-        Generate_submission_file(videoid = videoid, predict  = predict, mysubfile = submissionFile, GivenVideolistfile = GivenVideolistfile, isTest = 1)
+        Generate_submission_file(videoid = validvideoid, predict  = predict, mysubfile = submissionFile, GivenVideolistfile = GivenVideolistfile, isTest = submissionType)
     timeend = time.time()
     print("using time: ", timeend - timestart)

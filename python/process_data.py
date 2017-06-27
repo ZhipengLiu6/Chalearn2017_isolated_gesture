@@ -322,7 +322,7 @@ class isoProcess(object):
                     frameStart = k
                     cnt = cnt + 1
                     print(cnt)
-                    inputsetting = oneVideoPath + "/ " + str(frameStart) + " " + str(i) + "\n"
+                    inputsetting = os.getcwd() + "/" +  oneVideoPath + "/ " + str(frameStart) + " " + str(i) + "\n"
                     inputfilestream.writelines(inputsetting)
         inputfilestream.close() 
     """
@@ -371,7 +371,7 @@ class isoProcess(object):
                     frameStart = k
                     cnt = cnt + 1
                     # print(cnt)
-                    outputsetting =   "%s/%06d\n" % (outputVideoPath, frameStart)
+                    outputsetting =   "%s/%s/%06d\n" % (os.getcwd(), outputVideoPath, frameStart)
                     outputfilestream.writelines(outputsetting)
         outputfilestream.close()
     """
